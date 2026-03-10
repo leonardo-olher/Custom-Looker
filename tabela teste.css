@@ -1,0 +1,151 @@
+.reportTable {
+  font-family: "Open Sans", Helvetica, Arial, Noto Sans TC, Noto Sans SC, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* HEADER */
+
+th.headerCell {
+  background: #f7f9fc;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 12px 10px;
+  border-bottom: 2px solid #1759ff;
+  text-align: left;
+}
+
+.headerCell.dimension,
+.headerCell.pivot,
+.headerCell.measure,
+.headerCell.measure.calculation {
+  background: #f7f9fc;
+  color: #2c3e50;
+}
+
+/* ROWS */
+
+.rowCell {
+  padding: 12px 10px;
+  border-bottom: 1px solid #edf1f5;
+  vertical-align: middle;
+  transition: background 0.15s ease;
+}
+
+/* Hover */
+
+.reportTable tr:hover .rowCell {
+  background: #f4f7ff;
+}
+
+/* Alternating rows */
+
+.reportTable tr:nth-child(even) {
+  background: #fbfcff;
+}
+
+/* TEXT ALIGN */
+
+.numeric {
+  text-align: right;
+  font-weight: 500;
+}
+
+.nonNumeric {
+  text-align: left;
+}
+
+/* NEGATIVE */
+
+.negative {
+  color: #e53935;
+  font-weight: 500;
+}
+
+/* SUBTOTAL */
+
+.subtotal {
+  background: #f1f4f8;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* TOTAL */
+
+.total {
+  border-top: 2px solid #1759ff !important;
+  font-weight: 700 !important;
+  background: #f4f7ff;
+}
+
+/* TOOLTIP */
+
+#tooltip {
+  position: absolute;
+  padding: 8px 10px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+  pointer-events: none;
+  font-size: 12px;
+  color: #2c3e50;
+  z-index: 10;
+}
+
+/* TABLE STYLE IMPROVEMENTS */
+
+.reportTable td:first-child {
+  font-weight: 500;
+}
+
+.reportTable tr {
+  transition: all 0.15s ease;
+}
+
+/* INDEX CELLS */
+
+.indexCell.transposed {
+  font-weight: 600;
+  background: #f7f9fc;
+}
+
+/* BADGE STYLE (caso queira replicar os pills da imagem) */
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-blue {
+  background: #e8f0ff;
+  color: #1759ff;
+}
+
+.badge-green {
+  background: #e6f7ee;
+  color: #1a7f37;
+}
+
+.badge-purple {
+  background: #f2e9ff;
+  color: #7a4dd8;
+}
+
+/* FOCUS ROW */
+
+.focus {
+  font-weight: 600;
+}
+
+/* HIDDEN */
+
+.hidden {
+  display: none;
+}

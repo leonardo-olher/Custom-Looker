@@ -1,74 +1,62 @@
-/* ===== TABLE CONTAINER ===== */
-.reportTable {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px; /* Cria o espaçamento vertical entre as "bolhas" de cada linha */
-  font-family: "Open Sans", sans-serif;
-  background: transparent; /* Fundo transparente para destacar as linhas */
+/* ===== REMOVER TEXTOS E FILTROS ACIMA DA TABELA ===== */
+/* Esconde títulos, metadados de filtros e descrições automáticas */
+.reportHeader, 
+.filterDescription,
+.looker-vis-context-display,
+div[style*="font-family: serif"] { 
+  display: none !important; 
 }
 
-/* ===== HEADER ===== */
+/* Garante que a tabela comece do topo */
+#vis-container, #vis {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ===== SEU CSS DA TABELA (VERSÃO CORRIGIDA) ===== */
+.reportTable {
+  width: 100%;
+  border-collapse: collapse; /* Alterado para collapse para unir as células na mesma linha */
+  border-spacing: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #ffffff;
+}
+
+/* Estilo do Header Azul */
 .reportTable thead th {
-  background: #1759ff !important;
+  background: #ffffff !important; /*daki*/
   color: #ffffff !important;
   padding: 14px 16px;
   text-align: left;
-  font-weight: 600;
   border: none;
 }
 
-/* Arredondamento apenas nas pontas do Header */
-.reportTable thead tr th:first-child { border-radius: 12px 0 0 12px; }
-.reportTable thead tr th:last-child { border-radius: 0 12px 12px 0; }
+/* Arredondamento apenas nas quinas da linha inteira do Header */
+.reportTable thead tr th:first-child { border-radius: 12px 0 0 0; }
+.reportTable thead tr th:last-child { border-radius: 0 12px 0 0; }
 
-/* ===== LINHAS (CORPO DA TABELA) ===== */
-.reportTable tbody tr {
-  /* No CSS de tabela, o background no TR só funciona bem se as TDs forem transparentes */
-  transition: transform 0.2s ease;
-}
-
-.reportTable tbody td {
-  padding: 14px 16px;
-  border: none;
-  background-color: #ffffff; /* Fundo padrão das células */
-  border-top: 1px solid #f1f3f7; /* Opcional: borda leve para fechar o desenho */
+/* Linhas e Células */
+.reportTable td {
+  padding: 12px 16px;
   border-bottom: 1px solid #f1f3f7;
+  background-color: transparent; /* Removido o fundo das células individuais */
 }
 
-/* ===== EFEITO DE "BOLHA" POR LINHA ===== */
-
-/* Arredonda apenas o início da linha */
-.reportTable tbody tr td:first-child {
-  border-left: 1px solid #f1f3f7;
-  border-radius: 12px 0 0 12px;
+/* Alternância de cores por linha (TR) */
+.reportTable tbody tr:nth-child(even) {
+  background-color: #f9fafb; /* Cinza claro na linha inteira */
 }
 
-/* Arredonda apenas o fim da linha */
-.reportTable tbody tr td:last-child {
-  border-right: 1px solid #f1f3f7;
-  border-radius: 0 12px 12px 0;
+.reportTable tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* Branco na linha inteira */
 }
 
-/* ===== ALTERNÂNCIA DE CORES (LINHA INTEIRA) ===== */
-.reportTable tbody tr:nth-child(even) td {
-  background-color: #f9fafb; /* Cinza bem claro para a linha par */
-}
-
-/* ===== TOTAL (DESTAQUE) ===== */
-.reportTable tr.total td, 
-.reportTable .totalRow td {
-  background-color: #d1d5db !important; /* Cinza mais escuro */
+/* Destaque do Total */
+.reportTable tr.total, .reportTable .totalRow {
+  background-color: #d1d5db !important;
   font-weight: 700;
-  color: #111;
-  border: none;
 }
 
-/* Manter o arredondamento no total também */
-.reportTable tr.total td:first-child { border-radius: 12px 0 0 12px; }
-.reportTable tr.total td:last-child { border-radius: 0 12px 12px 0; }
-
-/* ===== HOVER NA LINHA TODA ===== */
-.reportTable tbody tr:hover td {
-  background-color: #f0f4ff !important;
-  cursor: pointer;
-}
+/* Arredondamento nas quinas inferiores da tabela */
+.reportTable tbody tr:last-child td:first-child { border-radius: 0 0 0 12px; }
+.reportTable tbody tr:last-child td:last-child { border-radius: 0 0 12px 0; }

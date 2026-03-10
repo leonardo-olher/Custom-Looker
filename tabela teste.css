@@ -1,94 +1,74 @@
-/* ===== CONTAINER DA TABELA ===== */
+/* ===== TABLE CONTAINER ===== */
 .reportTable {
   width: 100%;
-  border-collapse: separate; /* Essencial para o border-radius funcionar */
-  border-spacing: 0;
-  font-family: "Inter", "Open Sans", Arial, sans-serif;
-  font-size: 13px;
-  background: #ffffff;
-  border-radius: 12px; /* Arredondamento externo */
-  overflow: hidden;
-  border: 1px solid #e5e7eb; /* Borda fina externa */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-collapse: separate;
+  border-spacing: 0 8px; /* Cria o espaçamento vertical entre as "bolhas" de cada linha */
+  font-family: "Open Sans", sans-serif;
+  background: transparent; /* Fundo transparente para destacar as linhas */
 }
 
-/* ===== HEADER (AZUL #1759FF) ===== */
+/* ===== HEADER ===== */
 .reportTable thead th {
-  background-color: #1759ff !important;
+  background: #1759ff !important;
   color: #ffffff !important;
   padding: 14px 16px;
   text-align: left;
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.03em;
   border: none;
 }
 
-/* ===== LINHAS E CELULAS ===== */
-.reportTable td {
-  padding: 12px 16px;
-  color: #374151;
-  border-bottom: 1px solid #f3f4f6; /* Linha divisória minimalista */
+/* Arredondamento apenas nas pontas do Header */
+.reportTable thead tr th:first-child { border-radius: 12px 0 0 12px; }
+.reportTable thead tr th:last-child { border-radius: 0 12px 12px 0; }
+
+/* ===== LINHAS (CORPO DA TABELA) ===== */
+.reportTable tbody tr {
+  /* No CSS de tabela, o background no TR só funciona bem se as TDs forem transparentes */
+  transition: transform 0.2s ease;
 }
 
-/* ===== ALTERNÂNCIA DE CORES (ZEBRA) ===== */
-/* Branco para ímpares, cinza muito claro para pares */
-.reportTable tbody tr:nth-child(odd) {
-  background-color: #ffffff;
+.reportTable tbody td {
+  padding: 14px 16px;
+  border: none;
+  background-color: #ffffff; /* Fundo padrão das células */
+  border-top: 1px solid #f1f3f7; /* Opcional: borda leve para fechar o desenho */
+  border-bottom: 1px solid #f1f3f7;
 }
 
-.reportTable tbody tr:nth-child(even) {
-  background-color: #f9fafb; /* Cinza bem claro */
+/* ===== EFEITO DE "BOLHA" POR LINHA ===== */
+
+/* Arredonda apenas o início da linha */
+.reportTable tbody tr td:first-child {
+  border-left: 1px solid #f1f3f7;
+  border-radius: 12px 0 0 12px;
 }
 
-/* Hover suave para interatividade */
-.reportTable tbody tr:hover {
-  background-color: #f0f7ff;
+/* Arredonda apenas o fim da linha */
+.reportTable tbody tr td:last-child {
+  border-right: 1px solid #f1f3f7;
+  border-radius: 0 12px 12px 0;
 }
 
-/* ===== LINHA DE TOTAL (DESTAQUE) ===== */
-.reportTable tr.total, 
-.reportTable tfoot tr,
-.reportTable .totalRow {
-  background-color: #d1d5db !important; /* Cinza mais escuro para destaque */
+/* ===== ALTERNÂNCIA DE CORES (LINHA INTEIRA) ===== */
+.reportTable tbody tr:nth-child(even) td {
+  background-color: #f9fafb; /* Cinza bem claro para a linha par */
+}
+
+/* ===== TOTAL (DESTAQUE) ===== */
+.reportTable tr.total td, 
+.reportTable .totalRow td {
+  background-color: #d1d5db !important; /* Cinza mais escuro */
   font-weight: 700;
-  color: #111827;
+  color: #111;
+  border: none;
 }
 
-.reportTable tr.total td {
-  border-top: 2px solid #9ca3af; /* Linha superior para separar o total */
-}
+/* Manter o arredondamento no total também */
+.reportTable tr.total td:first-child { border-radius: 12px 0 0 12px; }
+.reportTable tr.total td:last-child { border-radius: 0 12px 12px 0; }
 
-/* ===== AJUSTES DE ARREDONDAMENTO (QUINAS) ===== */
-/* Superior Esquerdo */
-.reportTable thead tr:first-child th:first-child {
-  border-top-left-radius: 12px;
-}
-
-/* Superior Direito */
-.reportTable thead tr:first-child th:last-child {
-  border-top-right-radius: 12px;
-}
-
-/* Inferior Esquerdo */
-.reportTable tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 12px;
-  border-bottom: none;
-}
-
-/* Inferior Direito */
-.reportTable tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 12px;
-  border-bottom: none;
-}
-
-/* ===== ALINHAMENTOS ===== */
-.numeric {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.nonNumeric {
-  text-align: left;
+/* ===== HOVER NA LINHA TODA ===== */
+.reportTable tbody tr:hover td {
+  background-color: #f0f4ff !important;
+  cursor: pointer;
 }

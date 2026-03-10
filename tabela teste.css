@@ -24,7 +24,7 @@ div[style*="font-family: serif"] {
 
 /* Estilo do Header Azul */
 .reportTable thead th {
-  background: #ffffff !important; /*daki*/
+  background: #1759ff !important;
   color: #ffffff !important;
   padding: 14px 16px;
   text-align: left;

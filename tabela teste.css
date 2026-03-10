@@ -1,151 +1,119 @@
+/* ===== TABLE CONTAINER ===== */
+
 .reportTable {
-  font-family: "Open Sans", Helvetica, Arial, Noto Sans TC, Noto Sans SC, sans-serif;
   width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  font-size: 13px;
-  background: white;
-  border-radius: 8px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: "Open Sans", Helvetica, Arial, Noto Sans TC, Noto Sans SC, sans-serif;
+  font-size: 13.5px;
+  background: #ffffff;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 
 th.headerCell {
-  background: #f7f9fc;
-  color: #2c3e50;
+  background: #ffffff;
+  color: #1a1a1a;
   font-weight: 600;
-  padding: 12px 10px;
-  border-bottom: 2px solid #1759ff;
+  padding: 14px 16px;
   text-align: left;
+  border-bottom: 2px solid #eef2f7;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
-.headerCell.dimension,
-.headerCell.pivot,
-.headerCell.measure,
-.headerCell.measure.calculation {
-  background: #f7f9fc;
-  color: #2c3e50;
+/* Linha azul discreta no header */
+
+.reportTable thead tr {
+  border-bottom: 2px solid #1759ff;
 }
 
-/* ROWS */
+/* ===== ROW ===== */
+
+.reportTable tr {
+  transition: all 0.18s ease;
+}
+
+/* ===== CELLS ===== */
 
 .rowCell {
-  padding: 12px 10px;
-  border-bottom: 1px solid #edf1f5;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f3f7;
   vertical-align: middle;
-  transition: background 0.15s ease;
+  color: #2b2b2b;
 }
 
-/* Hover */
+/* ===== HOVER ===== */
 
-.reportTable tr:hover .rowCell {
-  background: #f4f7ff;
+.reportTable tbody tr:hover {
+  background: #f7f9ff;
 }
 
-/* Alternating rows */
+/* ===== ALTERNATING ROWS ===== */
 
-.reportTable tr:nth-child(even) {
-  background: #fbfcff;
+.reportTable tbody tr:nth-child(even) {
+  background: #fbfcfe;
 }
 
-/* TEXT ALIGN */
-
-.numeric {
-  text-align: right;
-  font-weight: 500;
-}
+/* ===== TEXT ===== */
 
 .nonNumeric {
   text-align: left;
 }
 
-/* NEGATIVE */
+.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== NEGATIVE ===== */
 
 .negative {
-  color: #e53935;
+  color: #e5484d;
   font-weight: 500;
 }
 
-/* SUBTOTAL */
+/* ===== SUBTOTAL ===== */
 
 .subtotal {
-  background: #f1f4f8;
+  background: #f5f7fa;
   font-weight: 600;
-  font-style: normal;
 }
 
-/* TOTAL */
+/* ===== TOTAL ===== */
 
 .total {
+  font-weight: 700;
   border-top: 2px solid #1759ff !important;
-  font-weight: 700 !important;
   background: #f4f7ff;
 }
 
-/* TOOLTIP */
+/* ===== FIRST COLUMN EMPHASIS ===== */
+
+.reportTable td:first-child {
+  font-weight: 500;
+  color: #111;
+}
+
+/* ===== TOOLTIP ===== */
 
 #tooltip {
   position: absolute;
   padding: 8px 10px;
   background: white;
   border-radius: 6px;
-  box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
-  pointer-events: none;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
   font-size: 12px;
-  color: #2c3e50;
-  z-index: 10;
+  pointer-events: none;
 }
 
-/* TABLE STYLE IMPROVEMENTS */
+/* ===== SMOOTH RENDER ===== */
 
-.reportTable td:first-child {
-  font-weight: 500;
-}
-
-.reportTable tr {
-  transition: all 0.15s ease;
-}
-
-/* INDEX CELLS */
-
-.indexCell.transposed {
-  font-weight: 600;
-  background: #f7f9fc;
-}
-
-/* BADGE STYLE (caso queira replicar os pills da imagem) */
-
-.badge {
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.badge-blue {
-  background: #e8f0ff;
-  color: #1759ff;
-}
-
-.badge-green {
-  background: #e6f7ee;
-  color: #1a7f37;
-}
-
-.badge-purple {
-  background: #f2e9ff;
-  color: #7a4dd8;
-}
-
-/* FOCUS ROW */
-
-.focus {
-  font-weight: 600;
-}
-
-/* HIDDEN */
-
-.hidden {
-  display: none;
+.reportTable td,
+.reportTable th {
+  transition: background 0.15s ease;
 }

@@ -1,123 +1,94 @@
-/* ===== TABLE CONTAINER ===== */
+/* ===== CONTAINER DA TABELA ===== */
 .reportTable {
   width: 100%;
-  border-collapse: separate; /* necessário para bordas arredondadas externas */
+  border-collapse: separate; /* Essencial para o border-radius funcionar */
   border-spacing: 0;
-  font-family: "Open Sans", Helvetica, Arial, Noto Sans TC, Noto Sans SC, sans-serif;
-  font-size: 13.5px;
-  background: #ffffff;
-  border-radius: 16px; /* apenas bordas externas arredondadas */
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* ===== HEADER ===== */
-th.headerCell {
-  background: #1759ff; /* azul principal */
-  color: #ffffff; /* letras brancas */
-  font-weight: 600;
-  padding: 14px 16px;
-  text-align: left;
-  border-bottom: 2px solid #0f3ecb; /* linha azul discreta */
-  letter-spacing: 0.02em;
+  font-family: "Inter", "Open Sans", Arial, sans-serif;
   font-size: 13px;
-  text-transform: uppercase;
+  background: #ffffff;
+  border-radius: 12px; /* Arredondamento externo */
+  overflow: hidden;
+  border: 1px solid #e5e7eb; /* Borda fina externa */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Linha azul discreta no header */
-.reportTable thead tr {
-  border-bottom: 2px solid #1759ff;
-}
-
-/* ===== ROW ===== */
-.reportTable tr {
-  transition: all 0.18s ease;
-}
-
-/* ===== CELLS ===== */
-.rowCell {
+/* ===== HEADER (AZUL #1759FF) ===== */
+.reportTable thead th {
+  background-color: #1759ff !important;
+  color: #ffffff !important;
   padding: 14px 16px;
-  border-bottom: 1px solid #f1f3f7; /* células internas permanecem quadradas */
-  vertical-align: middle;
-  color: #2b2b2b;
-  transition: background 0.15s ease;
-}
-
-/* ===== HOVER ===== */
-.reportTable tbody tr:hover {
-  background: #f0f4ff; /* hover suave */
-}
-
-/* ===== ALTERNATING ROWS ===== */
-.reportTable tbody tr:nth-child(even) {
-  background: #fbfcfe;
-}
-
-/* ===== TEXT ===== */
-.nonNumeric {
   text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  border: none;
 }
 
+/* ===== LINHAS E CELULAS ===== */
+.reportTable td {
+  padding: 12px 16px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6; /* Linha divisória minimalista */
+}
+
+/* ===== ALTERNÂNCIA DE CORES (ZEBRA) ===== */
+/* Branco para ímpares, cinza muito claro para pares */
+.reportTable tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.reportTable tbody tr:nth-child(even) {
+  background-color: #f9fafb; /* Cinza bem claro */
+}
+
+/* Hover suave para interatividade */
+.reportTable tbody tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* ===== LINHA DE TOTAL (DESTAQUE) ===== */
+.reportTable tr.total, 
+.reportTable tfoot tr,
+.reportTable .totalRow {
+  background-color: #d1d5db !important; /* Cinza mais escuro para destaque */
+  font-weight: 700;
+  color: #111827;
+}
+
+.reportTable tr.total td {
+  border-top: 2px solid #9ca3af; /* Linha superior para separar o total */
+}
+
+/* ===== AJUSTES DE ARREDONDAMENTO (QUINAS) ===== */
+/* Superior Esquerdo */
+.reportTable thead tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+
+/* Superior Direito */
+.reportTable thead tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* Inferior Esquerdo */
+.reportTable tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+  border-bottom: none;
+}
+
+/* Inferior Direito */
+.reportTable tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+  border-bottom: none;
+}
+
+/* ===== ALINHAMENTOS ===== */
 .numeric {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-/* ===== NEGATIVE ===== */
-.negative {
-  color: #e5484d;
-  font-weight: 500;
-}
-
-/* ===== SUBTOTAL ===== */
-.subtotal {
-  background: #f5f7fa;
-  font-weight: 600;
-}
-
-/* ===== TOTAL ===== */
-.total {
-  font-weight: 700;
-  border-top: 2px solid #d1d5db; /* linha sutil */
-  background: #e5e7eb; /* cinza destaque */
-}
-
-/* ===== FIRST COLUMN EMPHASIS ===== */
-.reportTable td:first-child {
-  font-weight: 500;
-  color: #111;
-}
-
-/* ===== TOOLTIP ===== */
-#tooltip {
-  position: absolute;
-  padding: 8px 10px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-  font-size: 12px;
-  pointer-events: none;
-}
-
-/* ===== SMOOTH RENDER ===== */
-.reportTable td,
-.reportTable th {
-  transition: background 0.15s ease;
-}
-
-/* ===== ROUNDED BORDERS EXTERNAS ===== */
-.reportTable thead th:first-child {
-  border-top-left-radius: 16px;
-}
-
-.reportTable thead th:last-child {
-  border-top-right-radius: 16px;
-}
-
-.reportTable tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 16px;
-}
-
-.reportTable tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 16px;
+.nonNumeric {
+  text-align: left;
 }

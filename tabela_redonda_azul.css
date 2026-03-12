@@ -32,10 +32,15 @@
   border: none;
 
   text-align: center !important;
-  white-space: nowrap;     /* impede quebra de linha */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 150px;
+  
+  /* REGRAS AJUSTADAS PARA LARGURA AUTOMÁTICA */
+  white-space: nowrap !important; /* Força o texto a ficar em uma única linha */
+  width: auto;                    /* Permite que a coluna cresça para caber o texto */
+  
+  /* As 3 linhas abaixo foram removidas/comentadas pois limitavam o tamanho e cortavam o texto: */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* max-width: 150px; */
 }
 
 /* Arredondamento das pontas do Header */

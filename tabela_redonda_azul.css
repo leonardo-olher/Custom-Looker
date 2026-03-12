@@ -3,15 +3,17 @@
   display: none !important;
 }
 
-/* ===== 2. CONTAINER COM SCROLL HORIZONTAL ===== */
+/* ===== CONTAINER COM SCROLL ===== */
 .reportTable {
   width: 100%;
-  overflow-x: auto;        /* SCROLL HORIZONTAL */
-  display: block;          /* necessário para scroll funcionar */
   border-collapse: separate;
   border-spacing: 0 4px;
   font-family: "Open Sans", Arial, sans-serif;
   background-color: transparent !important;
+
+  max-height: 500px;     /* altura da área da tabela */
+  overflow-y: auto;      /* scroll vertical */
+  overflow-x: auto;      /* scroll horizontal */
 }
 
 /* Tabela interna maior que o container */

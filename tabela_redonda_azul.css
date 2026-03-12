@@ -83,6 +83,16 @@
 .reportTable tr:last-child td.total:first-child { border-radius: 8px 0 0 8px; }
 .reportTable tr:last-child td.total:last-child { border-radius: 0 8px 8px 0; }
 
+/* ===== TOTAL FIXO NO RODAPÉ ===== */
+.reportTable tfoot td {
+  position: sticky;
+  bottom: 0;
+  background: #d1d5db !important;
+  z-index: 5;
+  font-weight: 700;
+  border-top: 2px solid #c4c8cf;
+}
+
 /* ===== 6. ALINHAMENTOS ===== */
 .numeric { text-align: right; }
 .nonNumeric { text-align: left; }
